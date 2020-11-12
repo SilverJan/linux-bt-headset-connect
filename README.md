@@ -14,6 +14,13 @@ See ```requirements.txt``` for list of requirements. Install via
 
 ## <a name="use">How to use it</a>
 
+### Configure headset
+Add the your headset *name* and the headset *MAC address* into `config.yaml`
+
+To get the infos in Ubuntu 18.04:
+ - connect your bluetooth headset in the bluetooth settings
+ - in the bluetooth settigs, click on your headset to get the needed infos, or use `pactl list | grep  -i device.*bluez -B 2`
+
 ### Calling the program directly
 
 You can call the program via

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
+import yaml
 
 def getLogger():
     logger = logging.getLogger("btctl")
@@ -16,7 +17,11 @@ def getLogger():
     return logger
 
 def getHeadsetDetails():
-    headset_details = {'name': "LE-Bose AE2 SoundLink", 'mac_address': "2C:41:A1:FC:7F:5F"}
+    with open("config.yaml") as config:
+        try: # Python >= 3.7
+            headset_details = yaml.load(config, Loader=yaml.FullLoader)
+        except: # Python < 3.7
+            headset_details = yaml.load(config)
     return headset_details
 
 def replaceColonWithUnderline(str):
